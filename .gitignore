@@ -1,0 +1,29 @@
+**/target/
+.idea
+*.iml
+*.class
+*Test.java
+**/test/
+# 本地起后端时重定向出来的运行日志
+*.log
+# Public source distribution: local configuration and generated files
+node_modules/
+**/target/
+**/dist/
+*.log
+*.tsbuildinfo
+*.class
+*.pyc
+__pycache__/
+.env
+.env.*
+!.env.example
+!.env.sample
+.state/
+artifacts/
+.claude/
+.idea/
+*.pem
+*.key
+*.p12
+*.pfx

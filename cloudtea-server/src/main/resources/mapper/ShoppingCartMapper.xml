@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloudtea.mapper.ShoppingCartMapper">
+    <insert id="insertBatch">
+        insert into shopping_cart
+        (name, image, user_id, drink_id, combo_id, drink_spec, number, amount, create_time)
+        values
+        <foreach collection="shoppingCartList" item="sc" separator=",">
+            (#{sc.name},#{sc.image},#{sc.userId},#{sc.drinkId},#{sc.comboId},#{sc.drinkSpec},#{sc.number},#{sc.amount},#{sc.createTime})
+        </foreach>
+    </insert>
+    <select id="list" resultType="com.cloudtea.entity.ShoppingCart">
+        select * from shopping_cart
+        <where>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="comboId!=null">
+                and combo_id = #{comboId}
+            </if>
+            <if test="drinkId!=null">
+                and drink_id = #{drinkId}
+            </if>
+            <if test="drinkSpec!=null">
+                and drink_spec = #{drinkSpec}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

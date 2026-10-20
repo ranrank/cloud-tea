@@ -1,0 +1,109 @@
+:root {
+  /* 云栖茶饮品牌色：茶汤绿 + 琥珀金 */
+  --ct-green: #2e7d6b;
+  --ct-green-deep: #1f5b4d;
+  --ct-green-soft: #e8f2ef;
+  --ct-amber: #c9a227;
+  --ct-ink: #1f2d2a;
+  --ct-ink-soft: #6b7c78;
+  --ct-line: #e6ebe9;
+
+  /* 覆盖 Element Plus 主色，让组件库整体跟着品牌走 */
+  --el-color-primary: #2e7d6b;
+  --el-color-primary-light-3: #5c9c8d;
+  --el-color-primary-light-5: #8ab8ad;
+  --el-color-primary-light-7: #b8d5ce;
+  --el-color-primary-light-8: #cfe2dd;
+  --el-color-primary-light-9: #e8f2ef;
+  --el-color-primary-dark-2: #1f5b4d;
+
+  --el-border-radius-base: 8px;
+  --el-font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--el-font-family);
+  color: var(--ct-ink);
+  background: #f4f7f6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 页面统一容器 */
+.page {
+  padding: 20px 24px 32px;
+}
+
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.page-sub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--ct-ink-soft);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar .spacer {
+  flex: 1;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--ct-line);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.pager {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.muted {
+  color: var(--ct-ink-soft);
+}
+
+.mono {
+  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+  font-size: 12.5px;
+}
+
+/* 规格标签 */
+.spec-tag {
+  display: inline-block;
+  margin: 2px 6px 2px 0;
+  padding: 1px 8px;
+  font-size: 12px;
+  border-radius: 10px;
+  background: var(--ct-green-soft);
+  color: var(--ct-green-deep);
+}

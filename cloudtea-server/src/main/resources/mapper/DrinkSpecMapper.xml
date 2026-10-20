@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloudtea.mapper.DrinkSpecMapper">
+
+
+    <insert id="insertBatch">
+        insert into drink_spec (drink_id,spec_name,spec_values) values
+        <foreach collection="specs" item="ds" separator=",">
+            (#{ds.drinkId},#{ds.specName},#{ds.specValues})
+        </foreach>
+    </insert>
+</mapper>

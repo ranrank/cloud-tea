@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${cloudtea.datasource.driver-class-name}
+      url: jdbc:mysql://${cloudtea.datasource.host}:${cloudtea.datasource.port}/${cloudtea.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${cloudtea.datasource.username}
+      password: ${cloudtea.datasource.password}
+  redis:
+    host: ${cloudtea.redis.host}
+    port: ${cloudtea.redis.port}
+    password: ${cloudtea.redis.password}
+    database: ${cloudtea.redis.database}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cloudtea.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      cloudtea:
+        mapper: debug
+        service: info
+        controller: info
+
+cloudtea:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: ${JWT_ADMIN_SECRET}
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: ${JWT_USER_SECRET}
+    user-ttl: 7200000
+    user-token-name: authentication
+
+  alioss:
+    endpoint: ${cloudtea.alioss.endpoint}
+    access-key-id: ${cloudtea.alioss.access-key-id}
+    access-key-secret: ${cloudtea.alioss.access-key-secret}
+    bucket-name: ${cloudtea.alioss.bucket-name}
+  wechat:
+    appid: ${cloudtea.wechat.appid}
+    secret: ${cloudtea.wechat.secret}
+    # 模拟支付开关：没有微信支付商户号时保持 true，pay()/refund() 直接返回模拟结果
+    mock: true
+
+  store:
+    # 门店地址，用于计算配送距离
+    address: ${cloudtea.store.address}
+  baidu:
+    # 百度地图开放平台的服务端 AK，用于地理编码和路线规划
+    ak: ${cloudtea.baidu.ak}

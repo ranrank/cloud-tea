@@ -1,0 +1,32 @@
+cloudtea:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: ${MYSQL_HOST:localhost}
+    port: ${MYSQL_PORT:3306}
+    database: ${MYSQL_DATABASE:cloud_tea}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD}
+
+  alioss:
+    endpoint: ${ALIYUN_OSS_ENDPOINT:oss-cn-beijing.aliyuncs.com}
+    access-key-id: ${ALIYUN_OSS_ACCESS_KEY_ID}
+    access-key-secret: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+    bucket-name: ${ALIYUN_OSS_BUCKET:your-bucket}
+
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: ${REDIS_DATABASE:10}
+  wechat:
+    appid: ${WECHAT_APP_ID}
+    secret: ${WECHAT_SECRET}
+
+  # 门店地址，需能被百度地图地理编码解析出来
+  store:
+    address: 北京市海淀区中关村软件园
+    # 最大配送距离，单位：米（50000 = 50 公里，测试用；想演示“超出配送范围”改小即可）
+    max-delivery-distance: 50000
+  baidu:
+    # 百度地图开放平台-控制台-应用管理 创建“服务端”应用后得到的 AK
+    ak: ${BAIDU_MAP_AK}

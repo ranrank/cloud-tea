@@ -1,0 +1,34 @@
+package com.cloudtea.dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.cloudtea.vo.OrderSubmitVO;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Data
+public class OrdersSubmitDTO implements Serializable {
+    //就餐方式 1堂食 2外卖，不传按外卖处理
+    private Integer orderType;
+    //地址簿id（堂食不传）
+    private Long addressBookId;
+    //付款方式
+    private int payMethod;
+    //备注
+    private String remark;
+    //预计送达时间
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime estimatedDeliveryTime;
+    //配送状态  1立即送出  0选择具体时间
+    private Integer deliveryStatus;
+    //餐具数量
+    private Integer tablewareNumber;
+    //餐具数量状态  1按餐量提供  0选择具体数量
+    private Integer tablewareStatus;
+    //打包费
+    private Integer packAmount;
+    //总金额
+    private BigDecimal amount;
+}
